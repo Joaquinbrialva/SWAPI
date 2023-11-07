@@ -17,7 +17,7 @@ GET /people: Obtener informacion sobre personajes de Star Wars.
 GET /starships: Obtener informacion sobre naves de Star Wars.
 GET /planets: Obtener informacion sobre planetas de Star Wars.
 
-Se pueden usar parametros de consulta para filtrar los resultados. Por ejemplo: /films?title=a%new%hope A continuacion las consultas disponibles:
+Se pueden usar parametros de consulta para filtrar los resultados. Por ejemplo: /films?title=anewhope A continuacion las consultas disponibles:
 
 ## Peliculas (films)
 title, director.
