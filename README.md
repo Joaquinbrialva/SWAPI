@@ -6,11 +6,11 @@ Este proyecto es una API RESTful que sincroniza datos de la API de Star Wars (SW
 
 Inicia tu base de datos local de mongod.
 
-Instala las dependencias del proyecto:
-npm install
+Instala las dependencias del proyecto:<br>
+<b>npm install</b>
 
-Inicia el servidor:
-npm start
+Inicia el servidor:<br>
+<b>npm start</b>
 
 Se puede acceder a los siguientes endpoints:
 
@@ -35,7 +35,7 @@ name, model, manufacturer, cost_in_credits, length, crew, passengers, consumable
 
 Todas las busquedas son insensibles a mayusculas o minusculas.
 
-## IMPORTANTE
+## ⚠️⚠️ IMPORTANTE ⚠️⚠️
 La sincronizacion esta programada para que se ejecute todos los dias a las 00:00hs. Para probar la sincronizacion manualmente, debe ir al archivo app.js y cambiar esta parte del codigo:<br><br>
 cron.schedule('42 21 * * *', () => {<br>
     syncData(urls, models);<br>
