@@ -1,15 +1,17 @@
 # API de sincronizacion de datos de Star Wars
+![R2d2SmhGIF](https://github.com/Joaquinbrialva/SWAPI/assets/93806772/156f423e-1139-41f2-982c-1b9dfcd6b614)
+
 
 Este proyecto es una API RESTful que sincroniza datos de la API de Star Wars (SWAPI) en una base de datos local todos los dias a las 00:00hs, ejecutado por un cron. Permite acceder a información sobre personajes, peliculas, naves y planetas de Star Wars.
 
 ## Como Iniciar el Servidor:
 
-Inicia tu base de datos local de mongod.
+1. Inicia tu base de datos local de mongod.
 
-Instala las dependencias del proyecto:<br>
+2. Instala las dependencias del proyecto:<br>
 <b>npm install</b>
 
-Inicia el servidor:<br>
+3. Inicia el servidor:<br>
 <b>npm start</b>
 
 Se puede acceder a los siguientes endpoints:
@@ -19,21 +21,23 @@ GET /people: Obtener informacion sobre personajes de Star Wars.<br>
 GET /starships: Obtener informacion sobre naves de Star Wars.<br>
 GET /planets: Obtener informacion sobre planetas de Star Wars.<br>
 
-Se pueden usar parametros de consulta para filtrar los resultados. Por ejemplo: /films?title=anewhope A continuacion las consultas disponibles:
+Se pueden usar parametros de consulta para filtrar los resultados. Por ejemplo:<br> <b>/films?title=anewhope</b>
 
-## Peliculas (films)
+A continuacion las consultas disponibles:
+
+## 🎥 Peliculas (films)
 title, director.
 
-## Personajes (people)
+## 👨‍🚀 Personajes (people)
 name, gender.
 
-## Planetas (planets)
+## 🌎 Planetas (planets)
 name, climate, terrain, population, diameter.
 
-## Naves Espaciales (starships)
+## 🚀 Naves Espaciales (starships)
 name, model, manufacturer, cost_in_credits, length, crew, passengers, consumables, starship_class.
 
-Todas las busquedas son insensibles a mayusculas o minusculas.
+<br>Todas las busquedas son insensibles a mayusculas o minusculas.
 
 ## ⚠️⚠️ IMPORTANTE ⚠️⚠️
 La sincronizacion esta programada para que se ejecute todos los dias a las 00:00hs. Para probar la sincronizacion manualmente, debe ir al archivo app.js y cambiar esta parte del codigo:<br><br>
