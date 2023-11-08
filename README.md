@@ -39,9 +39,9 @@ name, model, manufacturer, cost_in_credits, length, crew, passengers, consumable
 
 <br>Todas las busquedas son insensibles a mayusculas o minusculas.
 
-## ⚠️⚠️ IMPORTANTE ⚠️⚠️
+## ⚠️ IMPORTANTE ⚠️
 La sincronizacion esta programada para que se ejecute todos los dias a las 00:00hs. Para probar la sincronizacion manualmente, debe ir al archivo app.js y cambiar esta parte del codigo:<br><br>
-cron.schedule('42 21 * * *', () => {<br>
+cron.schedule('0 0 * * *', () => {<br>
     syncData(urls, models);<br>
 });
 
