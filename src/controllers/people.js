@@ -1,27 +1,39 @@
-const People = require('../models/People');
-
-exports.getPeople = async (req, res) => {
+"use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getPeople = void 0;
+const People_1 = __importDefault(require("../models/People"));
+const getPeople = (request, reply) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         let query = {};
-
-        if (req.query.name) {
-            const nameRegex = new RegExp(req.query.name, 'i');
+        if (request.query && request.query.name) {
+            const nameRegex = new RegExp(request.query.name.toString(), "i");
             query.name = nameRegex;
         }
-
-        if (req.query.gender) {
-            query.gender = req.query.gender;
+        if (request.query && request.query.gender) {
+            query.gender = request.query.gender;
         }
-
-        const people = await People.find(query);
-
+        const people = yield People_1.default.find(query);
         if (!people || people.length === 0) {
-            return res.status(404).json({ message: 'No se encontraron personas.' });
+            reply.code(404).send({ message: "No se encontraron personas." });
+            return;
         }
-
-        res.status(200).json({ count: people.length, data: people });
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: error.message });
+        reply.send({ count: people.length, data: people });
     }
-};
+    catch (error) {
+        console.error(error);
+        reply.code(500).send({ error: error.message });
+    }
+});
+exports.getPeople = getPeople;

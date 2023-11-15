@@ -1,28 +1,40 @@
-const Film = require('../models/Film');
-
-exports.getFilms = async (req, res) => {
+"use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getFilms = void 0;
+const Film_1 = __importDefault(require("../models/Film"));
+const getFilms = (request, reply) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         let query = {};
-
-        if (req.query.title) {
-            const titleRegex = new RegExp(req.query.title, 'i');
+        if (request.query && request.query.title) {
+            const titleRegex = new RegExp(request.query.title, 'i');
             query.title = titleRegex;
         }
-
-        if (req.query.director) {
-            const directorRegex = new RegExp(req.query.director, 'i');
+        if (request.query && request.query.director) {
+            const directorRegex = new RegExp(request.query.director, 'i');
             query.director = directorRegex;
         }
-
-        const films = await Film.find(query);
-
+        const films = yield Film_1.default.find(query);
         if (!films || films.length === 0) {
-            return res.status(404).json({ message: 'No se encontraron películas.' });
+            reply.status(404).send({ message: 'No se encontraron películas.' });
+            return;
         }
-
-        res.status(200).json({ count: films.length, data: films });
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: error.message });
+        reply.send({ count: films.length, data: films });
     }
-};
+    catch (error) {
+        console.error(error);
+        reply.status(500).send({ error: error.message });
+    }
+});
+exports.getFilms = getFilms;
