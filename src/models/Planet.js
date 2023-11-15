@@ -1,7 +1,7 @@
-const mongoose = require('mongoose');
-const { Schema, model } = mongoose;
-
-const planetSchema = new Schema({
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const mongoose_1 = require("mongoose");
+const planetSchema = new mongoose_1.Schema({
     name: String,
     rotation_period: String,
     orbital_period: String,
@@ -27,7 +27,5 @@ const planetSchema = new Schema({
     edited: Date,
     url: String
 });
-
- const Planet = model('planet', planetSchema);
-
- module.exports = Planet;
+const Planet = (0, mongoose_1.model)('planet', planetSchema);
+exports.default = Planet;

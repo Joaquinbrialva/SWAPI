@@ -1,7 +1,7 @@
-const mongoose = require('mongoose');
-const { Schema, model } = mongoose;
-
-const starshipSchema = new Schema({
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const mongoose_1 = require("mongoose");
+const starshipSchema = new mongoose_1.Schema({
     name: String,
     model: String,
     manufacturer: String,
@@ -31,7 +31,5 @@ const starshipSchema = new Schema({
     edited: Date,
     url: String
 });
-
-const Starship = model('starship', starshipSchema);
-
-module.exports = Starship;
+const Starship = (0, mongoose_1.model)('starship', starshipSchema);
+exports.default = Starship;

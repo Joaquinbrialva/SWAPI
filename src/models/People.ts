@@ -1,7 +1,24 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const mongoose_1 = require("mongoose");
-const peopleSchema = new mongoose_1.Schema({
+import { Schema, model } from 'mongoose';
+
+interface IPeople {
+    name: string;
+    height: string;
+    mass: string;
+    hair_color: string;
+    skin_color: string;
+    birth_year: string;
+    gender: string;
+    homeworld: string;
+    films: string[];
+    species: string[];
+    vehicles: string[];
+    starships: string[];
+    created: Date;
+    edited: Date;
+    url: string;
+}
+
+const peopleSchema = new Schema<IPeople>({
     name: String,
     height: String,
     mass: String,
@@ -38,5 +55,7 @@ const peopleSchema = new mongoose_1.Schema({
     edited: Date,
     url: String
 });
-const People = (0, mongoose_1.model)('people', peopleSchema);
-exports.default = People;
+
+const People = model<IPeople>('people', peopleSchema);
+
+export default People;
