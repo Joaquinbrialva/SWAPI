@@ -1,4 +1,4 @@
-// src/controllers/films.js
+// Controlador de films
 import { FastifyRequest, FastifyReply } from 'fastify';
 import Film from '../models/Film';
 
