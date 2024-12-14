@@ -4,8 +4,6 @@
 
 Este proyecto es una API RESTful que sincroniza datos de la API de Star Wars (SWAPI) en una base de datos local todos los dias a las 00:00hs, ejecutado por un cron. Permite acceder a información sobre personajes, peliculas, naves y planetas de Star Wars.
 
-🛑<b>No pude implementar los tests. No le encontre la manera con typescript y fastify. Intente utilizar jest y supertest.</b>😓
-
 ## Como Iniciar el Servidor:
 
 1. Inicia tu base de datos local de mongod.
